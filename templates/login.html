@@ -1,0 +1,25 @@
+{% extends 'template.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block heading %}
+Login
+{% endblock %}
+
+{% block body %}
+{% from 'includes/_formhelper.html' import render_field %}
+    <form method="POST" action="">
+        <div class="form-group" align = "center">
+            <div class="col-lg-4 col-lg-offset-4" align = "left">
+                <dl>
+                    {{render_field(form.username, class="form-control")}}
+                </dl>
+                <dl>
+                    {{render_field(form.password, class="form-control")}}
+                </dl>
+                <p align = "center"><input type="submit" value="Submit" class="btn btn-primary"></p>
+            </div>
+        </div>  
+    </form>
+{% endblock %}
+

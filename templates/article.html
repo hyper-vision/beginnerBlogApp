@@ -1,0 +1,14 @@
+{% extends "template.html" %}
+
+{% block title %} {{article.title}} {% endblock %}
+
+{% block heading %}
+{{ article.title }}
+{% endblock %}
+
+{% block body %}
+
+<small>Written by {{ article.author }} on {{ article.date }}</small>
+<br>
+    <p>{{article.body | safe}}</p>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'template.html' %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block body %}
+    <h1>Welcome <small>{{ session.username }}</small></h1>
+    <a class="btn btn-success" href="/write">Add Article</a>
+    <hr>
+    <table class="table table-striped">
+        <th>Title</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+    {% for article in articles %}
+        <tr>
+            <td>{{article.title}}</td>
+            <td>{{article.date}}</td>
+            <td><a class="btn btn-default pull-right" href="/edit_article/{{article.id}}">Edit</a></td>
+            <td>
+                <form action="{{url_for('delete_article', id = article.id)}}" method="POST">
+                    <input type="hidden" name="method" value="DELETE">
+                    <input type="submit" value="Delete" class="btn btn-danger">
+                </form>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
